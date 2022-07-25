@@ -1,7 +1,57 @@
-select{
+select {
   width: 347px;
   height: 35px;
 }
-p{
+
+p {
   color: red;
+}
+
+.passwordDiv {
+  display: flex;
+}
+
+.Eyeicon {
+  margin-top: 10px;
+  border: none;
+  background: transparent;
+  position: relative;
+  right: 40px;
+  margin: 8px 0px;
+}
+.control{
+  width: 97%;
+  height: 37px;
+  border: 1px solid #ced4da;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.edit{
+  color: white;
+  background-color: blue;
+  border: 2px solid blue;
+  border-radius: 5px;
+  padding: 6px 5px;
+  margin: 5px;
+}
+.delete{
+  color: white;
+  background-color: red;
+  border: 2px solid red;
+  border-radius: 5px;
+  padding: 6px 5px;
+  margin: 5px;
 }

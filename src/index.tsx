@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
+import { store,persistor } from './store';
+import { Provider } from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react'
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 import { MyContext } from './contexts/allContext';
@@ -13,7 +16,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <MyContext.Provider value="abc">
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
       <App />
+      </PersistGate>
+      </Provider>
       </MyContext.Provider>
     </BrowserRouter>
   </React.StrictMode>
