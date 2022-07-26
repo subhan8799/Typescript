@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { SignUp } from "./features/createSlice";
+import {fetchUsersSuccess} from "./Action/userAction"
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs'
 
 const Signup = () => {
@@ -43,7 +43,7 @@ const Signup = () => {
   const handleSubmit = (e: any) => {
     e.preventDefault();
 
-    dispatch(SignUp({
+    dispatch(fetchUsersSuccess({
       email: email,
       password: password,
       confirmpassword: confirmpassword,

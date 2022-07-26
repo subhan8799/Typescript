@@ -1,51 +1,42 @@
 import React, { useState, useEffect } from 'react'
 import '../App.css'
-import axios from "axios";
-import { allUsers } from './features/usersReducer';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteUsers } from "../Components/features/usersReducer";
+import { getUsers, updateUser } from "./Action/userAction";
+import axios from 'axios';
 import Update from './Update'
-
-
 export const Dashboard = () => {
   const [newData, setNewData] = useState([])
-  let users = useSelector((state: any) => state.users.users)
-  const dispatch = useDispatch() 
-  const handleUpdate = (payload:any) =>{
-  let data =users;
-  console.log(data)
-  data.map((item : any) => {
-      if(item.id === payload.id){
-        item['name'] = payload.name;
-        item['username'] = payload.username;
-        item['email'] = payload.email
-      }
-    })
-    dispatch(allUsers(data))
-  }
-  useEffect(() => {
-    fetchData();
-
-  }, []);
-
-  const fetchData = async () => {
-      const result = await axios(
-        'https://jsonplaceholder.typicode.com/users',
-      );
-      dispatch(allUsers(result.data))
-    // else{
-    //   setNewData(users.users)
-    // }
-      
+  const users = useSelector((state: any) => state.users.listOfUsers)
+  const dispatch = useDispatch()
+  const handleUpdate = (updatePayload: any) => {
+    const updateData = users.find((item: any) => item.id == updatePayload.id)
+    const indexOfData = users.indexOf(updateData);
+    const copyOfData: any = [...users];
+    copyOfData[indexOfData].name = updatePayload.name
+    copyOfData[indexOfData].username = updatePayload.username
+    copyOfData[indexOfData].email = updatePayload.email
+    dispatch(updateUser(copyOfData));
+    setNewData(copyOfData)
   };
-
-  console.log("Newdata",newData)
+  useEffect(() => {
+    if (!users.length) {
+      fetchData();
+    }
+    else {
+      setNewData(users)
+    }
+  }, []);
+  const fetchData = async () => {
+    const result = await axios(
+      'https://jsonplaceholder.typicode.com/users',
+    );
+    dispatch(getUsers(result.data))
+    setNewData(result.data)
+  };
   const handleDelete = (id: any) => {
-    const data = users.find((item: any) => item.id == id)
-    const indexofDeletedData = users.indexOf(data)
-    const copyData = [...users]
-    copyData.splice(indexofDeletedData, 1)
-    dispatch(deleteUsers(copyData));
+    const deleteData = users.filter((item: any) => item.id !== id)
+    dispatch(getUsers(deleteData));
+    setNewData(deleteData)
   }
   return (
     <div>
@@ -55,11 +46,10 @@ export const Dashboard = () => {
           <th>Name</th>
           <th>UserName</th>
           <th>Email</th>
-
         </tr>
         <tbody>
-          {newData.length  && newData?.map((item: any) => (
-            <tr>
+          {newData.length && newData?.map((item: any, index: any) => (
+            <tr key={index}>
               <td>{item.id}</td>
               <td>{item.name}</td>
               <td>{item.username}</td>
@@ -68,10 +58,8 @@ export const Dashboard = () => {
                 <Update editOject={item} updatefunctionFromParent={handleUpdate} />
                 <button className='delete' onClick={() => handleDelete(item.id)}>Delete</button>
               </td>
-
             </tr>
           ))}
-
         </tbody>
       </table>
     </div>

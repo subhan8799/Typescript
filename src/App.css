@@ -2,7 +2,6 @@ select {
   width: 347px;
   height: 35px;
 }
-
 p {
   color: red;
 }
@@ -35,7 +34,6 @@ td, th {
   text-align: left;
   padding: 8px;
 }
-
 tr:nth-child(even) {
   background-color: #dddddd;
 }

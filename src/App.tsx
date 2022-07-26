@@ -1,4 +1,3 @@
-import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import SignUp from './Components/SignUp';
@@ -12,12 +11,9 @@ function App() {
         <Route path="/" element={<SignIn />}></Route>
         <Route path="/Dashboard" element={<Dashboard />}></Route>
         {/* <Route path="/" element={< Form />}></Route> */}
-        
       </Routes>
-
     </>
 
   );
 }
-
 export default App;

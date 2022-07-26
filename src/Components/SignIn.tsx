@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { BsFillEyeFill,BsFillEyeSlashFill } from 'react-icons/bs'
-
 export default function SignIn() {
     const [errMsg, setErrMsg] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
@@ -16,11 +15,9 @@ export default function SignIn() {
         navigate("./SignUp");
     };
     const data = useSelector((state: any) => state.user)
-
     useEffect(() => {
         setStateUser(data)
     }, [])
-
     const handleToggle = () => {
         setShowPassword(!showPassword)
         if (type === 'password') {
@@ -56,7 +53,6 @@ export default function SignIn() {
     const passwordHandler = (value: string) => {
         const paswd = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/;
         if (!value.match(paswd)) {
-
             return false;
         } else {
             setErrorMsg('');
@@ -96,9 +92,7 @@ export default function SignIn() {
                                 name="password"
                                 onChange={(e) => passwordHandler(e.target.value)}
                             />
-         {showPassword ?<BsFillEyeFill  className="Eyeicon" onClick={handleToggle}/> : <BsFillEyeSlashFill  className="Eyeicon" onClick={handleToggle}/>}
-
-                            
+         {showPassword ?<BsFillEyeFill  className="Eyeicon" onClick={handleToggle}/> : <BsFillEyeSlashFill  className="Eyeicon" onClick={handleToggle}/>} 
                         </div>
                         {errorMsg.length ? <div style={{ color: 'red' }}>{errorMsg}</div> : ''}
                     </div>
