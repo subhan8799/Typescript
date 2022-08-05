@@ -1,12 +1,14 @@
 import {
   FETCH_USERS_SUCCESS,
   GET_USERS,
-  UPDATE_USERS
+  UPDATE_USERS,
+  ADD_USERS,
+  STATE_USERS
 } from "../../Users/userTypes";
 const initialState = {
   loading: false,
   error: "",
-  listOfUsers: [],
+  users: [],
 };
 // @ts-ignore
 const reducer = (state = initialState, action) => {
@@ -17,9 +19,13 @@ const reducer = (state = initialState, action) => {
         users: action.payload,
         error: "",
       };
+      case STATE_USERS:
+        return { ...state, users: action.payload }  
     case GET_USERS:
-      return { ...state, listOfUsers: action.payload }
+      return { ...state, users: action.payload }  
     case UPDATE_USERS:
+      return { ...state, users: action.payload }
+      case ADD_USERS:
       return { ...state, users: action.payload }
     default:
       return state;

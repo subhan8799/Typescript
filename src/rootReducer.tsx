@@ -5,7 +5,6 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
   key: 'users',
   storage: storage,
-  whitelist: ['listOfUsers']
 };
 const rootReducer = combineReducers({
     // @ts-ignore

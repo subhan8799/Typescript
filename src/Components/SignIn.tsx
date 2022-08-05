@@ -8,15 +8,17 @@ export default function SignIn() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [type, setType] = useState('password');
-    const [stateUser, setStateUser] = useState(null)
+    const [stateUsers, setStateUsers] = useState("")
     const [showPassword,setShowPassword] = useState(false)
     const navigate = useNavigate();
     const handleMove = () => {
         navigate("./SignUp");
     };
-    const data = useSelector((state: any) => state.user)
+    const users = useSelector((state: any) => state.users.users)
+
     useEffect(() => {
-        setStateUser(data)
+        
+        setStateUsers(users)
     }, [])
     const handleToggle = () => {
         setShowPassword(!showPassword)
@@ -29,14 +31,16 @@ export default function SignIn() {
     }
     const SignInHandle = async (e: any) => {
         e.preventDefault()
+        console.log("stateUsers----",stateUsers)
+      
         //@ts-ignore
-        const data = stateUser.find(item => item.email == email)
-        if (!data) {
+        const users = stateUsers.findIndex(item => item.email == email);
+        if (!users) {
             alert('Invalid credentials')
-        } else if (data.email == email && data.password !== password) {
+        } else if (users.email == email && users.password !== password) {
             alert('Invalid password')
         }
-        else if (data.email == email && data.password == password) {
+        else if (users.email == email && users.password == password) {
             alert('Your account is login')
         }
     };

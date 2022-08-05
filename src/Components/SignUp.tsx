@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {fetchUsersSuccess} from "./Action/userAction"
+import { fetchUsersSuccess } from "./Action/userAction"
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs'
-
+import InputField from "./Add/InputField"
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
@@ -17,8 +17,6 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [cnfrmShowPassword, setcnfrmShowPassword] = useState(false)
   const dispatch = useDispatch();
-
-
 
   const handleToggle = () => {
     setShowPassword(!showPassword)
@@ -100,27 +98,28 @@ const Signup = () => {
   };
   return (
     <>
+
       <nav className="navbar-light bg-light">
         <div className="container-fluid d-flex">
           <a className="navbar-brand" href="#">Navbar</a>
-              <button
-                onClick={handleMove}
-                type="submit"
-                className="btn btn-primary "
-                style={{ borderRadius: "8px" }}
-              >
-                Sign In
-              </button>
-              <button
-                onClick={handleMoving}
-                type="submit"
-                className="btn btn-primary "
-                style={{ borderRadius: "8px" ,marginLeft: "6px" }}
-              >
-                Dashboard
-              </button>
+          <button
+            onClick={handleMove}
+            type="submit"
+            className="btn btn-primary "
+            style={{ borderRadius: "8px" }}
+          >
+            Sign In
+          </button>
+          <button
+            onClick={handleMoving}
+            type="submit"
+            className="btn btn-primary "
+            style={{ borderRadius: "8px", marginLeft: "6px" }}
+          >
+            Dashboard
+          </button>
 
-            
+
         </div>
       </nav>
       <div className="container">
@@ -129,8 +128,15 @@ const Signup = () => {
           <div className="col-lg-4">
             <form className="mt-4 mb-4" onSubmit={(e) => handleSubmit(e)}>
               <div className="form-group">
-                <label>Email</label>
-                <input
+                <InputField
+                  value={email}
+                  label="Email"
+                  type="text"
+                  className="control"
+                  id="exampleInputEmail1"
+                  onChange={(e: any) => emailHandler(e.target.value)}
+                />
+                {/* <input
                   value={email}
                   type="text"
                   className="control"
@@ -138,7 +144,7 @@ const Signup = () => {
                   aria-describedby="emailHelp"
                   placeholder="Enter Email"
                   onChange={(e) => emailHandler(e.target.value)}
-                />
+                /> */}
                 {errMsg.length ? <div style={{ color: 'red' }}>{errMsg}</div> : ''}
               </div>
               <div className="form-group">

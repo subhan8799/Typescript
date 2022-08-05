@@ -39,17 +39,35 @@ tr:nth-child(even) {
 }
 .edit{
   color: white;
-  background-color: blue;
-  border: 2px solid blue;
-  border-radius: 5px;
-  padding: 6px 5px;
+  background-color: #6495ED;
+  border: 2px solid #6495ED;
+  border-radius: 4px;
+  padding: 6px 14px;
   margin: 5px;
 }
 .delete{
   color: white;
-  background-color: red;
-  border: 2px solid red;
-  border-radius: 5px;
+  background-color: #DE3163;
+  border: 2px solid#DE3163;
+  border-radius: 4px;
   padding: 6px 5px;
   margin: 5px;
+  margin-left: 20px;
+}
+.add{
+  color: white;
+  background-color: 	#800000;
+  border: 2px solid 	#800000;
+  border-radius: 4px;
+  padding: 4px 20px;
+  margin: 5px;
+}
+.Dashboard{
+  background-color: darkgray;
+}
+.search{
+  margin-left: 85px;
+  margin-top: 10px;
+  border-radius: 8px;
+
 }
