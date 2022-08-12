@@ -70,13 +70,7 @@ const Update = (props: any) => {
             </Form.Group>
           </Form>
           <Signbtn onClick={handleClose} text="Close"/>
-          {/* <Button variant="outlined"  onClick={handleClose}>
-            Close
-          </Button> */}
           <Signbtn onClick={updatedata} text="Save Updates"/>
-          {/* <Button variant="outlined" onClick={updatedata}>
-            Save Updates
-          </Button> */}
         </Box>
       </Modal>
     </>

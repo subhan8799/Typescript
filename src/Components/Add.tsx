@@ -18,7 +18,6 @@ const style = {
   p: 4,
 };
 const Add = (props:any) => {
-    //its-ignore
   const users = useSelector((state: any) => state.users.users);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -70,14 +69,8 @@ const Add = (props:any) => {
               <Form.Control type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
             </Form.Group>
           </Form>
-          <Signbtn onClick={handleClose} text="Close"/>
-          {/* <Button variant="outlined"  onClick={handleClose}>
-            Close
-          </Button> */}
+          <Signbtn onClick={handleClose} text="Close"/> 
           <Signbtn onClick={adddata} text="Save Updates"/>
-          {/* <Button variant="outlined" onClick={adddata}>
-            Save Updates
-          </Button> */}
         </Box>
       </Modal>
     </>

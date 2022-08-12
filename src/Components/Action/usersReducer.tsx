@@ -15,8 +15,7 @@ const initialState: initialStateProps = {
   error: "",
   users: [],
 };
-// @ts-ignore
-const reducer = (state = initialState, action) => {
+const reducer = (state = initialState, action:any) => {
   switch (action.type) {
     case FETCH_USERS_SUCCESS:
       return {
