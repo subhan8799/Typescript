@@ -5,7 +5,12 @@ import {
   ADD_USERS,
   STATE_USERS
 } from "../../Users/userTypes";
-const initialState = {
+export interface initialStateProps {
+  loading: Boolean,
+  error: string,
+  users: [],
+}
+const initialState: initialStateProps = {
   loading: false,
   error: "",
   users: [],

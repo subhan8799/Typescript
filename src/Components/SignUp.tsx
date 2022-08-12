@@ -17,7 +17,6 @@ const Signup = () => {
   const [showPassword, setShowPassword] = useState(false)
   const [cnfrmShowPassword, setcnfrmShowPassword] = useState(false)
   const dispatch = useDispatch();
-
   const handleToggle = () => {
     setShowPassword(!showPassword)
     if (type === 'password') {
@@ -136,15 +135,6 @@ const Signup = () => {
                   id="exampleInputEmail1"
                   onChange={(e: any) => emailHandler(e.target.value)}
                 />
-                {/* <input
-                  value={email}
-                  type="text"
-                  className="control"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="Enter Email"
-                  onChange={(e) => emailHandler(e.target.value)}
-                /> */}
                 {errMsg.length ? <div style={{ color: 'red' }}>{errMsg}</div> : ''}
               </div>
               <div className="form-group">

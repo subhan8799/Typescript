@@ -1,28 +1,35 @@
 import React, { useState, useEffect } from 'react'
 import '../App.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers, updateUser, addUser } from "./Action/userAction";
+import { getUsers, updateUser, addUser, stateUsers } from "./Action/userAction";
+import { Button } from '@mui/material'
 import axios from 'axios';
 import Update from './Update'
 import Add from './Add'
 export const Dashboard = () => {
-  const [newData, setNewData] = useState([])
+  interface initialStateProps {
+    id?: number,
+    name?: string,
+    username?: string,
+    email?: string
+  }
+  const [newData, setNewData] = useState({})
   const [searchValue, setSearchValue] = useState("")
-  const [filterdata, setFilterData] = useState([]);
-  const keys = ["name", "username", "email"]
-  const users = useSelector((state: any) => state.users.users);
-  const  handleSubmit=(e:any)=>{
+  const [filterdata, setFilterData] = useState<any>([]);
+  const keys = ["name", "username", "email"];
+  const users: initialStateProps[] = useSelector((state: any) => state.users.users);
+  const handleSubmit = (e: any) => {
     setSearchValue(e.target.value);
     let inputVal = e.target.value;
-    let filterData = users.filter((val:any)=>{
-      return val.name.toLowerCase().includes(inputVal.toLowerCase());
+    let filterData: any = users.filter((val: any) => {
+      return val.name.toLowerCase().includes(inputVal.toLowerCaseInitialprops());
     })
     setFilterData(filterData)
   }
   const dispatch = useDispatch()
   const handleUpdate = (updatePayload: any) => {
     console.log(updatePayload)
-    const updateData = users.find((item: any) => item.id == updatePayload.id)
+    const updateData: any = users.find((item: any) => item.id == updatePayload.id)
     const indexOfData = users.indexOf(updateData);
     const copyOfData: any = [...users,];
     copyOfData[indexOfData].name = updatePayload.name
@@ -31,16 +38,15 @@ export const Dashboard = () => {
     dispatch(updateUser(copyOfData));
     setNewData(copyOfData)
   };
-  const handleAdd = (addPayload: any) => {
+  const handleAdd = (addPayload: "string") => {
     const copyOfData: any = [...users, addPayload];
-    // copyOfData.map((item: any) => item.id = item.id+1)
     const index = copyOfData.findIndex((item: any) => item.id == 6)
     console.log("index", index)
     copyOfData.findIndex((item: any) => item.id)
     dispatch(addUser(copyOfData));
     setNewData(copyOfData)
+    setFilterData(copyOfData)
   };
-
   useEffect(() => {
     if (!users.length) {
       fetchData();
@@ -56,17 +62,17 @@ export const Dashboard = () => {
     dispatch(getUsers(result.data))
     setNewData(result.data)
   };
-  const handleDelete = (id: any) => {
-    const deleteData = users.filter((item: any) => item.id !== id)
+  const handleDelete = (id: "string") => {
+    const deleteData: any = users.filter((item: any) => item.id !== id)
     dispatch(getUsers(deleteData));
     setNewData(deleteData)
+    setFilterData(deleteData)
   }
-  useEffect(()=>{
-    if(!filterdata.length){
+  useEffect(() => {
+    if (!filterdata.length) {
       setFilterData(users)
     }
-  },[]) 
-  
+  }, [])
   return (
     <div>
       <div className="Dashboard">
@@ -84,7 +90,7 @@ export const Dashboard = () => {
                   type="text"
                   className="search"
                   name="search"
-                  placeholder="Search.."
+                  placeholder="Search......"
                   value={searchValue}
                   onChange={handleSubmit}
                 />
@@ -100,32 +106,25 @@ export const Dashboard = () => {
             <th>Email</th>
             <th>Action</th>
           </tr>
-           <tbody>
-           {filterdata?.length > 0 ?
-        filterdata?.map((item,index)=>{
-    return (
-      // @ts-ignore
-      <tr key={index}>
-      {/* @ts-ignore */}
-      <td>{item?.id}</td> 
-      {/* @ts-ignore */}
-      <td>{item?.name}</td> 
-      {/* @ts-ignore */}
-       <td>{item?.username}</td> 
-      {/* @ts-ignore */}
-      <td>{item?.email}</td>
-      <td> 
-        <Update editOject={item} updatefunctionFromParent={handleUpdate} /> 
-        {/* @ts-ignore */}
-        <button className='delete' onClick={() => handleDelete(item.id)}>Delete</button>
-      </td>
-    </tr> 
-    )
-  }):(
-    <h1>Search Not Data Found</h1>
-  )
-}  
-
+          <tbody>
+            {filterdata?.length > 0 ?
+              filterdata?.map((item: any, index: number) => {
+                return (
+                  <tr key={index}>
+                    <td>{item?.id}</td>
+                    <td>{item?.name}</td>
+                    <td>{item?.username}</td>
+                    <td>{item?.email}</td>
+                    <td>
+                      <Update editOject={item} updatefunctionFromParent={handleUpdate} />
+                      <Button className='delete' onClick={() => handleDelete(item.id)}>Delete</Button>
+                    </td>
+                  </tr>
+                )
+              }) : (
+                <h1>Search Data Not Found</h1>
+              )
+            }
           </tbody>
         </table >
       </div>
