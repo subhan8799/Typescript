@@ -5,7 +5,7 @@ import { Box } from '@mui/material'
 import { Modal } from '@mui/material'
 import { Typography } from '@mui/material'
 import {  useSelector } from 'react-redux';
-import { Signbtn } from './Buttons';
+import { Signbtn } from '../Buttons/Buttons';
 const style = {
   position: 'absolute' as 'absolute',
   top: '40%',

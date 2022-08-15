@@ -68,6 +68,22 @@ tr:nth-child(even) {
 .search{
   margin-left: 85px;
   margin-top: 10px;
-  border-radius: 8px;
-
+  border-radius: 7px;
+}
+.posistion{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: center;
+}
+.userbox{
+  padding-left: 38px;
+  margin-left: 26px;
+  border-radius: 7px;
+  background-color:lightgray;
+}
+.icon{
+  position: absolute;
+  right: 409px;
+  top: 15px;
 }

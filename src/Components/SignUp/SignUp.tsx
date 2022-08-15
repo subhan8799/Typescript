@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { fetchUsersSuccess } from "./Action/userAction"
+import { fetchUsersSuccess } from "../Action/userAction"
 import { BsFillEyeFill, BsFillEyeSlashFill } from 'react-icons/bs'
-import InputField from "./Add/InputField"
+import InputField from "../InputField/InputField"
+import { Signbtn } from '../Buttons/Buttons';
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setpassword] = useState("");
@@ -26,7 +27,6 @@ const Signup = () => {
       setType('password')
     }
   }
-
   const cnfrmToggle = () => {
     setcnfrmShowPassword(!cnfrmShowPassword)
     if (type1 === 'password') {
@@ -97,7 +97,6 @@ const Signup = () => {
   };
   return (
     <>
-
       <nav className="navbar-light bg-light">
         <div className="container-fluid d-flex">
           <a className="navbar-brand" href="#">Navbar</a>
@@ -117,8 +116,6 @@ const Signup = () => {
           >
             Dashboard
           </button>
-
-
         </div>
       </nav>
       <div className="container">
@@ -171,15 +168,11 @@ const Signup = () => {
                 </div>
                 {(passSam.length && confirmpassword.length) ? <div style={{ color: 'red' }}>{passSam}</div> : ''}
               </div>
-              <button
-                type="submit"
+              <Signbtn
+                text="Signup"
                 className="btn btn-secondary mt-3"
-                style={{ borderRadius: "10px" }}
                 disabled={!email.length || !password.length || !confirmpassword.length || Boolean(errorMsg.length || errMsg.length || passSam.length)}
-              >
-                Sign Up
-              </button>
-
+              />
             </form>
           </div>
           <div className="col-lg-4"></div>
@@ -188,5 +181,4 @@ const Signup = () => {
     </>
   );
 }
-
 export default Signup;

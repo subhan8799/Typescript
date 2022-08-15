@@ -4,7 +4,7 @@ import { Button } from '@mui/material'
 import { Box } from '@mui/material'
 import { Modal } from '@mui/material'
 import { Typography } from '@mui/material'
-import { Signbtn } from './Buttons';
+import { Signbtn } from '../Buttons/Buttons';
 const style = {
   position: 'absolute' as 'absolute',
   top: '40%',

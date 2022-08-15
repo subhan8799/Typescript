@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { BsFillEyeFill,BsFillEyeSlashFill } from 'react-icons/bs'
+import { Signbtn } from '../Buttons/Buttons';
 export default function SignIn() {
     const [errMsg, setErrMsg] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
@@ -13,6 +14,9 @@ export default function SignIn() {
     const navigate = useNavigate();
     const handleMove = () => {
         navigate("./SignUp");
+    };
+    const handleMoving = () => {
+        navigate("./Dashboard");
     };
     const users = useSelector((state: any) => state.users.users)
 
@@ -32,7 +36,6 @@ export default function SignIn() {
     const SignInHandle = async (e: any) => {
         e.preventDefault()
         console.log("stateUsers----",stateUsers)
-      
         //@ts-ignore
         const users = stateUsers.findIndex(item => item.email == email);
         if (!users) {
@@ -66,7 +69,7 @@ export default function SignIn() {
     }
     return (
         <>
-            <div className="container px-2">
+            <div className="container px-2">j
                 <button
                     onClick={handleMove}
                     type="submit"
@@ -107,15 +110,14 @@ export default function SignIn() {
                         </label>
                     </div>
                     <br></br>
-                    <button
-                        type="submit"
+                    <Signbtn
+                    onClick={handleMoving}
+                        text="Sign In"
                         className="btn btn-secondary"
-                        style={{ borderRadius: "10px" }}
-                    >
-                        Sign In
-                    </button>
+                        
+                    />
                 </form>
             </div>
         </>
     );
-}
+};

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import usersReducer from './Components/Action/usersReducer'
+import usersReducer from './Components/Reducers/usersReducer'
 import {persistReducer} from "redux-persist"
 import storage from 'redux-persist/lib/storage';
 const persistConfig = {

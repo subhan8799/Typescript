@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import '../App.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { getUsers, updateUser, addUser, stateUsers } from "./Action/userAction";
+import { getUsers, updateUser, addUser, stateUsers } from "../Action/userAction";
 import { Button } from '@mui/material'
 import axios from 'axios';
-import Update from './Update'
-import Add from './Add'
+import Update from '../Update/Update'
+import Add from '../Add/Add'
+import {AiOutlineUser} from 'react-icons/ai'
 export const Dashboard = () => {
   interface initialStateProps {
     id?: number,
@@ -22,7 +22,8 @@ export const Dashboard = () => {
     setSearchValue(e.target.value);
     let inputVal = e.target.value;
     let filterData: any = users.filter((val: any) => {
-      return val.name.toLowerCase().includes(inputVal.toLowerCaseInitialprops());
+      return val.name.toLowerCase().includes(inputVal.toLowerCase());
+     
     })
     setFilterData(filterData)
   }
@@ -85,7 +86,7 @@ export const Dashboard = () => {
               <h1>Dashboard</h1>
             </div>
             <div className="col-lg-4">
-              <div>
+              <div className='posistion'>
                 <input
                   type="text"
                   className="search"
@@ -94,6 +95,11 @@ export const Dashboard = () => {
                   value={searchValue}
                   onChange={handleSubmit}
                 />
+                <input 
+                className='userbox'
+                value="subhan@77"
+                />
+              <AiOutlineUser className="icon"/>
               </div>
             </div>
           </div>
