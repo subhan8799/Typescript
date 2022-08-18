@@ -4,10 +4,9 @@ export const Student = () => {
   const [dropdown, setDropDown] = useState();
   const [st, setSt] = useState([...studentsData]);
   const [filterdata, setFilterData] = useState<any>([...studentsData]);
-  const [backupFilterData, setBackupFilterData] = useState<any>([]);
+  const [backupFilterData, setBackupFilterData] = useState<any>([...studentsData]);
   const handleSubmit = (e: any) => {
     setDropDown(e.target.value);
-    // debugger
     submitVal(e.target.value)
   }
   const submitVal = (value: any) => {
@@ -16,12 +15,11 @@ export const Student = () => {
       console.log(filterdataa);
       setFilterData([...filterdataa]);
       setBackupFilterData([...filterdataa]);
-    } else {
+    } else { 
       setBackupFilterData([...st]);
       setFilterData([...st]);
     }
   }
-  debugger
   useEffect(() => {
     if (!filterdata.length) {
       setFilterData(studentsData)
@@ -32,15 +30,14 @@ export const Student = () => {
     let filterdataa: any = backupFilterData.filter((val: any) => val.class === e.target.value || val.session === 'spring');
     setFilterData(filterdataa)
   }
-  console.log(backupFilterData)
   const FallBtn = (e: any) => {
     setDropDown(e.target.value);
     let filterdataa: any = backupFilterData.filter((val: any) => val.class === e.target.value || val.session === 'Fall');
     setFilterData(filterdataa)
   }
+  console.log(backupFilterData);
   const allBtn = (e: any) => {
     setDropDown(e.target.value);
-    // let filterdataa: any = filterdata.filter((val:any) => val.class=== e.target.value || val.session==='Fall');
     setFilterData(backupFilterData)
   }
   console.log("filterdata", filterdata)
@@ -60,7 +57,7 @@ export const Student = () => {
                 <option value="BSCs">BSCs</option>
                 <option value="Bs IT">Bs IT</option>
                 <option value="Msc">Msc</option>
-                <option value="DATA Science">	DATA Science</option>
+                <option value="Data Science">	Data Science</option>
                 <option value="Ms computer">	Ms computer</option>
                 <option value="Bs">	Bs</option>
                 <option value="Bsc">	Bsc</option>
@@ -75,8 +72,9 @@ export const Student = () => {
         </div>
         <table>
           <tr>
+            <th>Id</th>
             <th>Name</th>
-            <th>Roll</th>
+            <th>Roll No</th>
             <th>Class</th>
             <th>Session</th>
           </tr>
@@ -85,6 +83,7 @@ export const Student = () => {
               filterdata?.map((item: any, index: number) => {
                 return (
                   <tr key={index}>
+                    <td>{item?.id}</td>
                     <td>{item?.name}</td>
                     <td>{item?.roll}</td>
                     <td>{item?.class}</td>

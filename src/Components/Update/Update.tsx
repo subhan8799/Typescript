@@ -21,7 +21,7 @@ const Update = (props: any) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [name, setName] = useState("");
-  const [username, setUserName] = useState("");
+  const [username, setUserName] = useState(""); 
   const [email, setEmail] = useState("");
   useEffect(() => {
     if (props.editOject != null) {

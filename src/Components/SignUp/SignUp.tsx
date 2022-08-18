@@ -29,7 +29,6 @@ const Signup = () => {
   const cnfrmToggle = () => {
     setcnfrmShowPassword(!cnfrmShowPassword)
     if (type1 === 'password') {
-
       setType1('text');
     }
     else {
@@ -50,7 +49,6 @@ const Signup = () => {
     setEmail('')
     setpassword('')
     setconfirmpassword('')
-    // @ts-ignore
   };
   const emailHandler = (value: string) => {
     const filter = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

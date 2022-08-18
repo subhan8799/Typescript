@@ -103,10 +103,8 @@ export const Dashboard = () => {
                 value="subhan@77"
                 />
               <AiOutlineUser className="icon"/>
-              
               <button className='Logout' onClick={handleMoving}>Logout</button>
               </div>
-              
             </div>
           </div>
         </div>

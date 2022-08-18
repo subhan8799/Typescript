@@ -1,127 +1,148 @@
 const studentsData = [
       {
+        "id" : "1",
       "name": "Subhan",
-      "roll": "1",
+      "roll": "12",
       "class": "BSCs",
       "session": "spring"
     },
     {
+      "id" : "2",
       "name": "Raheel",
-      "roll": "2",
+      "roll": "26",
       "class": "Bs IT",
       "session": "Fall"
     },
     {
+      "id" : "3",
       "name": "Zeeshan",
-      "roll": "3",
+      "roll": "23",
       "class": "Msc",
       "session": "spring"
     },
     {
+      "id" : "4",
       "name": "Furqan",
-      "roll": "4",
-      "class": "DATA Science",
+      "roll": "74",
+      "class": "Data Science",
       "session": "Fall"
     },
     {
+      "id" : "5",
       "name": "Faraz",
-      "roll": "5",
+      "roll": "85",
       "class": "Ms computer",
       "session": "spring"
     },
     {
+      "id" : "6",
       "name": "Zain",
-      "roll": "6",
+      "roll": "46",
       "class": "Bs",
       "session": "Fall"
     },
      {
+      "id" : "7",
       "name": "Abdul Rehman",
-      "roll": "7",
+      "roll": "77",
       "class": "BSCs",
       "session": "Fall"
     },
     {
+      "id" : "8",
       "name": "Qayyum",
-      "roll": "8",
+      "roll": "98",
       "class": "Bs IT",
       "session": "spring"
     },
     {
+      "id" : "9",
       "name": "Raza",
-      "roll": "9",
+      "roll": "59",
       "class": "Msc",
       "session": "Fall"
     },
     {
+      "id" : "10",
       "name": "sajid",
-      "roll": "10",
-      "class": "DATA Science",
+      "roll": "130",
+      "class": "Data Science",
       "session": "Fall"
     },
     {
+      "id" : "11",
       "name": "Hanan",
-      "roll": "11",
+      "roll": "115",
       "class": "Ms computer",
       "session": "spring"
     },
     {
+      "id" : "12",
       "name": "Touqeer",
-      "roll": "12",
+      "roll": "126",
       "class": "Bs",
       "session": "spring"
     },
     {
+      "id" : "13",
         "name": "Muhammin",
-        "roll": "13",
+        "roll": "137",
         "class": "Ms computer",
         "session": "Fall"
       },
       {
+        "id" : "14",
         "name": "Sarfaraz",
-        "roll": "14",
+        "roll": "148",
         "class": "Bs",
         "session": "spring"
       },
        {
+        "id" : "15",
         "name": "Abdullah",
-        "roll": "15",
+        "roll": "153",
         "class": "BSCs",
         "session": "Fall"
       },
       {
+        "id" : "16",
         "name": "Ali",
-        "roll": "16",
+        "roll": "160",
         "class": "Bs IT",
         "session": "spring"
       },
       {
+        "id" : "17",
         "name": "Asad",
-        "roll": "17",
+        "roll": "174",
         "class": "Msc",
         "session": "Fall"
       },
       {
+        "id" : "18",
         "name": "shouaib",
-        "roll": "18",
-        "class": "DATA Science",
-        "session": "Spring"
+        "roll": "182",
+        "class": "Data Science",
+        "session": "spring"
       },
       {
+        "id" : "19",
         "name": "Kamran",
-        "roll": "19",
-        "class": "DATA Science",
-        "session": "Spring"
+        "roll": "196",
+        "class": "Data Science",
+        "session": "spring"
       },
       {
+        "id" : "20",
         "name": "Faizain",
-        "roll": "20",
+        "roll": "202",
         "class": "Ms computer",
         "session": "Fall"
       },
       {
+        "id" : "21",
         "name": "Zubair",
-        "roll": "21",
+        "roll": "212",
         "class": "Bs",
         "session": "spring"
       }
