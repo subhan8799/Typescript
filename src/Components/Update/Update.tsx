@@ -70,7 +70,7 @@ const Update = (props: any) => {
             </Form.Group>
           </Form>
           <Signbtn onClick={handleClose} text="Close"/>
-          <Signbtn onClick={updatedata} text="Save Updates"/>
+          <Signbtn onClick={updatedata} text="Save"/>
         </Box>
       </Modal>
     </>

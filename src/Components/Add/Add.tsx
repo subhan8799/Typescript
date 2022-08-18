@@ -70,7 +70,7 @@ const Add = (props:any) => {
             </Form.Group>
           </Form>
           <Signbtn onClick={handleClose} text="Close"/> 
-          <Signbtn onClick={adddata} text="Save Updates"/>
+          <Signbtn onClick={adddata} text="Save "/>
         </Box>
       </Modal>
     </>

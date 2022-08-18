@@ -19,7 +19,7 @@ interface Input{
         className={className}
         id={id}
         placeholder={placeholder ?placeholder:'Please enter your text here'}
-        style={{color: textColor? textColor : 'pink', borderColor: borderColor ? borderColor: '#8B0000'}}
+        style={{color: textColor? textColor : 'black', borderColor: borderColor ? borderColor: '#8B0000'}}
         onChange={onChange}
         />
         </div>

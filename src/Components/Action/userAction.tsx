@@ -3,7 +3,8 @@ import {
   GET_USERS,
   UPDATE_USERS,
   ADD_USERS,
-  STATE_USERS
+  STATE_USERS,
+  SIGNUP_USERS
 } from "../../Users/userTypes";
 export const fetchUsersSuccess = (users:any) => {
   return {
@@ -27,3 +28,9 @@ export const addUser = (payload: any) => ({
   type: ADD_USERS,
   payload
 });
+export const signupUsers = (user: any) => (
+  {
+  type:  SIGNUP_USERS,
+  payload: user
+}
+);

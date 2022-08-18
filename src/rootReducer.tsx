@@ -7,7 +7,6 @@ const persistConfig = {
   storage: storage,
 };
 const rootReducer = combineReducers({
-    // @ts-ignore
   users: persistReducer(persistConfig,usersReducer)
 })
 export default rootReducer;

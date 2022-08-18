@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import { getUsers, updateUser, addUser, stateUsers } from "../Action/userAction";
 import { Button } from '@mui/material'
 import axios from 'axios';
@@ -13,6 +14,10 @@ export const Dashboard = () => {
     username?: string,
     email?: string
   }
+  const navigate = useNavigate();
+  const handleMoving = () => {
+    navigate("/");
+};
   const [newData, setNewData] = useState({})
   const [searchValue, setSearchValue] = useState("")
   const [filterdata, setFilterData] = useState<any>([]);
@@ -23,13 +28,11 @@ export const Dashboard = () => {
     let inputVal = e.target.value;
     let filterData: any = users.filter((val: any) => {
       return val.name.toLowerCase().includes(inputVal.toLowerCase());
-     
     })
     setFilterData(filterData)
   }
   const dispatch = useDispatch()
   const handleUpdate = (updatePayload: any) => {
-    console.log(updatePayload)
     const updateData: any = users.find((item: any) => item.id == updatePayload.id)
     const indexOfData = users.indexOf(updateData);
     const copyOfData: any = [...users,];
@@ -44,7 +47,7 @@ export const Dashboard = () => {
     const index = copyOfData.findIndex((item: any) => item.id == 6)
     console.log("index", index)
     copyOfData.findIndex((item: any) => item.id)
-    dispatch(addUser(copyOfData));
+    dispatch(addUser(copyOfData)); 
     setNewData(copyOfData)
     setFilterData(copyOfData)
   };
@@ -100,7 +103,10 @@ export const Dashboard = () => {
                 value="subhan@77"
                 />
               <AiOutlineUser className="icon"/>
+              
+              <button className='Logout' onClick={handleMoving}>Logout</button>
               </div>
+              
             </div>
           </div>
         </div>

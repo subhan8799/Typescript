@@ -1,3 +1,4 @@
+
 select {
   width: 347px;
   height: 35px;
@@ -11,12 +12,12 @@ p {
 }
 
 .Eyeicon {
-  margin-top: 10px;
+  left: 381px;
+    bottom: 31px;
   border: none;
   background: transparent;
   position: relative;
   right: 40px;
-  margin: 8px 0px;
 }
 .control{
   width: 97%;
@@ -84,6 +85,59 @@ tr:nth-child(even) {
 }
 .icon{
   position: absolute;
-  right: 409px;
+  right: 453px;
   top: 15px;
+}
+.Logout{
+  margin-left: 19px;
+  color: black;
+  background-color: darkgray;
+  width: 90px;
+  border-radius: 9px;
+  height: 34px;
+}
+.SignIn{
+  background: #8b9ccd;
+  height: 61rem;
+  overflow-x: hidden;
+}
+.style{
+  border: 1px solid lightgray;
+    background: white;
+    padding: 20px;
+    margin-top: 100px;
+    border-radius: 14px;
+    width: 78%;
+    
+}
+.Dropdown{
+  margin-top: 8px;
+  border-radius: 5px;
+  width: 154px;
+  /* height: 40px; */
+  padding: 5px
+}
+.All{
+  margin-left: 200px;
+    position: absolute;
+    top: 10px;
+    width: 55px;
+    background-color: darkgray;
+    border-radius: 9px;
+}
+.spring{
+  margin-left: 279px;
+  width: 70px;
+  position: absolute;
+  top: 11px;
+  background-color: darkgray;
+  border-radius: 9px;
+}
+.Fall{
+  margin-left: 370px;
+  width: 70px;
+  position: absolute;
+  top: 11px;
+  background-color: darkgray;
+  border-radius: 9px;
 }
