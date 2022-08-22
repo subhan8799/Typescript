@@ -34,7 +34,7 @@ export default function SignIn() {
         const user = users.map(item => item.email);
     const userpass = users.map((item:any) => item.password);
         if (user.includes(email)  && userpass.includes(password)) {
-            navigate("./Dashboard");
+            navigate("./Layout");
         }
        if (!user.includes(email)){
                alert('Email credentials')

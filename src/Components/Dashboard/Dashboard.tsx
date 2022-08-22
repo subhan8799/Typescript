@@ -98,11 +98,11 @@ export const Dashboard = () => {
                   value={searchValue}
                   onChange={handleSubmit}
                 />
-                <input 
+                {/* <input 
                 className='userbox'
                 value="subhan@77"
                 />
-              <AiOutlineUser className="icon"/>
+              <AiOutlineUser className="icon"/> */}
               <button className='Logout' onClick={handleMoving}>Logout</button>
               </div>
             </div>
