@@ -1,20 +1,23 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route,BrowserRouter } from 'react-router-dom';
 import SignUp from './Components/SignUp/SignUp';
 import SignIn from './Components/SignIn/SignIn';
-import Dashboard from './Components/Dashboard/Dashboard';
-import Student from './Components/Students/Student';
+import "antd/dist/antd.css";
 import Mainmenu from './Components/Layout/Lyout';
+import { useSelector } from 'react-redux';
 function App() {
+  const {isLogin} = useSelector((state:any) => state.users);
   return (
     <>
-      <Routes>
-        <Route path="/SignUp" element={< SignUp />}></Route>
-        <Route path="/" element={<SignIn />}></Route>
-        {/* <Route path="/Dashboard" element={<Dashboard />}></Route>
-        <Route path="/student" element={<Student />}></Route> */}
-        <Route path="/layout" element={<Mainmenu />}></Route>
-      </Routes>
+    {isLogin ? 
+     <Mainmenu />:
+     <BrowserRouter>
+     <Routes>
+     <Route path="/signIn" element={<SignIn />}></Route>
+     <Route path="/" element={<SignUp />}></Route>
+     </Routes>
+     </BrowserRouter>
+    }
     </>
   );
 }

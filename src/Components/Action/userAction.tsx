@@ -4,7 +4,8 @@ import {
   UPDATE_USERS,
   ADD_USERS,
   STATE_USERS,
-  SIGNUP_USERS
+  SIGNUP_USERS,
+  LOGIN_USERS
 } from "../../Users/userTypes";
 export const fetchUsersSuccess = (users:any) => {
   return {
@@ -26,6 +27,10 @@ export const updateUser = (payload: any) => ({
 });
 export const addUser = (payload: any) => ({
   type: ADD_USERS,
+  payload
+});
+export const setIsLoginUser = (payload: any) => ({
+  type: LOGIN_USERS,
   payload
 });
 export const signupUsers = (user: any) => (

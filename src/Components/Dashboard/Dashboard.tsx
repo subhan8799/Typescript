@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from "react-router-dom";
-import { getUsers, updateUser, addUser, stateUsers } from "../Action/userAction";
+import { getUsers, updateUser, addUser, stateUsers, setIsLoginUser } from "../Action/userAction";
 import { Button } from '@mui/material'
 import axios from 'axios';
 import Update from '../Update/Update'
@@ -15,8 +15,11 @@ export const Dashboard = () => {
     email?: string
   }
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const handleMoving = () => {
-    navigate("/");
+    navigate("/signIn");
+    dispatch(setIsLoginUser(false));
 };
   const [newData, setNewData] = useState({})
   const [searchValue, setSearchValue] = useState("")
@@ -31,7 +34,6 @@ export const Dashboard = () => {
     })
     setFilterData(filterData)
   }
-  const dispatch = useDispatch()
   const handleUpdate = (updatePayload: any) => {
     const updateData: any = users.find((item: any) => item.id == updatePayload.id)
     const indexOfData = users.indexOf(updateData);
@@ -103,7 +105,7 @@ export const Dashboard = () => {
                 value="subhan@77"
                 />
               <AiOutlineUser className="icon"/> */}
-              <button className='Logout' onClick={handleMoving}>Logout</button>
+              <button className='Logout' onClick={handleMoving} >Logout</button>
               </div>
             </div>
           </div>
