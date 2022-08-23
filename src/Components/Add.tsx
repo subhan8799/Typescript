@@ -1,7 +1,4 @@
 import React, { useState,useEffect } from 'react';
-// import Button from 'react-bootstrap/Button';
-// import Modal from 'react-bootstrap/Modal';
-// import Form from 'react-bootstrap/Form';
 import Form from 'react-bootstrap/Form';
 import { Button } from '@mui/material'
 import { Box } from '@mui/material' 
@@ -84,7 +81,7 @@ const Add = (props:any) => {
 
 
 
-      
+
       {/* <Button className="add" variant="primary" onClick={handleShow}>
         Add
       </Button>
