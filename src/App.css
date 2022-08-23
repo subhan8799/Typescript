@@ -1,4 +1,6 @@
-
+body{
+  overflow-x: hidden;
+}
 select {
   width: 347px;
   height: 35px;
@@ -98,17 +100,15 @@ tr:nth-child(even) {
 }
 .SignIn{
   background: #8b9ccd;
-  height: 61rem;
-  overflow-x: hidden;
+  height: 100vh;
 }
 .style{
   border: 1px solid lightgray;
     background: white;
     padding: 20px;
-    margin-top: 100px;
     border-radius: 14px;
     width: 78%;
-    
+    vertical-align: center;
 }
 .Dropdown{
   margin-top: 8px;
@@ -160,4 +160,14 @@ tr:nth-child(even) {
 
 .site-layout .site-layout-background {
   background: #fff;
+}
+.col-6{
+  flex: 0 0 auto;
+}
+.formData{
+  position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 45%;
+    width: 25%
 }

@@ -65,9 +65,8 @@ export default function SignIn() {
     }
     return (
         <div className='row SignIn' >
-            <div className='col-lg-4'></div>
-            <div className='col-lg-4'>
-                <form className="style">
+            <div className='col'>
+                <form className="formData style">
                     <h3>Sign In</h3>
                     <div className="mb-3">
                         <form className="mt-4 mb-4" onSubmit={SignInHandle} />
@@ -116,9 +115,6 @@ export default function SignIn() {
                     </div>
                 </form>
             </div>
-            <div className='col-lg-4'></div>
         </div>
     )
 }
-
-

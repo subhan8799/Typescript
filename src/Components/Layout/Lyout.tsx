@@ -20,22 +20,9 @@ const MainMenu: React.FC = () => {
           theme="dark"
           mode="inline"
           defaultSelectedKeys={['1']}
-        // items={[
-        //   {
-        //     key: '1',
-        //     icon: <UserOutlined />,
-        //     label: 'Dashboard',
-        //     onClick: () => 
-        //   },
-        //   {
-        //     key: '2',
-        //     icon: <VideoCameraOutlined />,
-        //     label: 'Student',
-        //   }
-        // ]}
         >
           <Menu.Item key="1">
-            <span>Deshboard</span>
+            <span>Dashboard</span>
             <Link to="/dashboard" />
           </Menu.Item>
           <Menu.Item key="2">
@@ -60,11 +47,8 @@ const MainMenu: React.FC = () => {
           }}
         >
           <Routes>
-          {/* <Route path="/SignUp" element={<SignUp />}></Route>
-          <Route path="/SignIn" element={<SignIn />}></Route> */}
           <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="/student" element={<Student />}></Route>
-          {/* <Route path="/layout" element={<MainMenu />}></Route> */}
           </Routes>
         </Content>
       </Layout>
